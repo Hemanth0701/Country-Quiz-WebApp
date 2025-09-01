@@ -61,7 +61,7 @@ export default function GamePage() {
   }
 
   const currentQ = questions[currentIndex];
-  // const progressPercent = ((currentIndex + 1) / questions.length) * 100;
+  //  const progressPercent = ((currentIndex + 1) / questions.length) * 100;
 
   return (
     <div className="container py-5">
