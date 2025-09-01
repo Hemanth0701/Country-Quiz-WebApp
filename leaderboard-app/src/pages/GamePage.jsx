@@ -55,15 +55,13 @@ export default function GamePage() {
       <div className="container result animate-fade">
         <h2>Quiz Completed 🎉</h2>
         <p>Your Score: <span className="text-primary">{score}</span> / {questions.length}</p>
-        <button onClick={() => navigate("/")} className="next-btn">
-          Back to Home
-        </button>
+        <button onClick={() => navigate("/")} className="next-btn"> Back to Home </button>
       </div>
     );
   }
 
   const currentQ = questions[currentIndex];
-  const progressPercent = ((currentIndex + 1) / questions.length) * 100;
+  // const progressPercent = ((currentIndex + 1) / questions.length) * 100;
 
   return (
     <div className="container py-5">
@@ -72,8 +70,10 @@ export default function GamePage() {
           <div className="progress flex-grow-1 me-3" >
             {/* <div className="progress-bar bg-primary progress-animated" role="progressbar" style={{  height: "30px" }} aria-valuenow={currentIndex + 1} aria-valuemin="0" aria-valuemax={questions.length} /> */}
             <h2> Question {currentIndex + 1} of {questions.length} </h2>
+            {/* <div className="progress-bar bg-primary progress-animated" role="progressbar" style={{ width: `${progressPercent}%`, height: "30px" }} aria-valuenow={currentIndex + 1} aria-valuemin="0" aria-valuemax={questions.length} /> */}
           </div>
-          <div className="fw-bold h2">Score: {score}</div>
+          <div className="fw-bold h2">
+            <h2>Score: {score}</h2></div>
         </div>
 
         <h1 className="mb-4">{currentQ.question}</h1>

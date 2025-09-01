@@ -54,50 +54,28 @@ export default function LoginModal({ onClose, onSuccess }) {
           </div>
 
           <form onSubmit={handleSubmit} className={styles['modal-body']}>
+            
             <label className={styles.field}>
               <span>Email or Phone</span>
-              <input
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                placeholder="you@example.com or 9876543210"
-              />
+              <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="you@example.com or 9876543210" />
             </label>
 
             <label className={styles.field}>
               <span>Password</span>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                minLength={6}
-                placeholder="••••••••"
-              />
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={6} placeholder="••••••••" />
             </label>
 
             <div className={styles['modal-actions']}>
-              <button type="button" className={`${styles.btn} ${styles.outline}`} onClick={() => navigate("/")}>
-                Back
-              </button>
-              <button type="button" className={`${styles.btn} ${styles.outline}`} onClick={() => { setEmail(''); setPassword(''); }}>
-                Clear
-              </button>
-              <button type="submit" className={`${styles.btn} ${styles.primary}`} disabled={loading}>
-                {loading ? "Signing in…" : "Sign in"}
-              </button>
+              <button type="button" className={`${styles.btn} ${styles.outline}`} onClick={() => navigate("/")}> Back </button>
+              <button type="button" className={`${styles.btn} ${styles.outline}`} onClick={() => { setEmail(''); setPassword(''); }}> Clear </button>
+              <button type="submit" className={`${styles.btn} ${styles.primary}`} disabled={loading}>  {loading ? "Signing in…" : "Sign in"} </button>
             </div>
+
           </form>
 
           <div className={styles['create-account']}>
             <p>Don't have an account?</p>
-            <button
-              className={`${styles.btn} ${styles.link}`}
-              onClick={() => navigate("/register")}
-            >
-              Create Account
-            </button>
+            <button className={`${styles.btn} ${styles.link}`} onClick={() => navigate("/register")} > Create Account </button>
           </div>
         </div>
       </div>

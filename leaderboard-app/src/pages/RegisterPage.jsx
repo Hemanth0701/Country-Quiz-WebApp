@@ -101,6 +101,7 @@ export default function RegisterPage() {
         <h1 className={styles.title}>Create Your Account</h1>
 
         <form onSubmit={handleSubmit} noValidate>
+          
           <InputField label="Username" name="username" type="text" value={formData.username} onChange={handleChange} required placeholder="Enter username" />
           <InputField label="Email" name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="Enter email" />
           <InputField label="Password" name="password" type="password" value={formData.password} onChange={handleChange} required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="At least 8 characters, 1 uppercase, 1 number & 1 special character" placeholder="Create a password" />
@@ -108,14 +109,8 @@ export default function RegisterPage() {
           <InputField label="Date of Birth" name="dob" type="date" value={formData.dob} onChange={handleChange} required max={dobMax} />
 
           <button  type="button"  className={`${styles.submitBtn} ${styles.outline}`}  onClick={() => setFormData({ username: "", email: "", password: "", phoneNumber: "", dob: "" })}>Clear</button> <br />
-          <button type="button" className={`${styles.submitBtn} ${styles.outline}`} onClick={() => navigate("/")}>
-                          Back
-                        </button>
-                        <br />
-          <button type="submit" className={styles.submitBtn} disabled={loading}>
-            {loading && <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>}
-            Register
-          </button>
+          <button type="button" className={`${styles.submitBtn} ${styles.outline}`} onClick={() => navigate("/")}> Back </button> <br />
+          <button type="submit" className={styles.submitBtn} disabled={loading}> {loading && <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>} Register </button>
         </form>
       </section>
 
