@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #111827;
+  color: #fff;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: #1d4ed8;
+}

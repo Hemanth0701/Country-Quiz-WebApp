@@ -1,0 +1,280 @@
+/* ===========================
+   Global Reset & Base Styles
+   =========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+/* Utility */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sr-only {
+  position: absolute;
+  left: -9999px;
+}
+
+/* ===========================
+   Header
+   =========================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #111827;
+  color: #ffffff;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.header button {
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.header button:hover {
+  background: #1d4ed8;
+}
+
+/* ===========================
+   Leaderboards
+   =========================== */
+.leaderboards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.leaderboard {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.leaderboard h3 {
+  background: #2563eb;
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.leaderboard ul {
+  list-style: none;
+}
+
+.leaderboard li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.leaderboard li:last-child {
+  border-bottom: none;
+}
+
+.leaderboard .rank {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+/* ===========================
+   Start Section
+   =========================== */
+.start-section {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.start-section h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+}
+
+.start-section p {
+  color: #4b5563;
+}
+
+.start-section button {
+  margin-top: 1rem;
+  background: #10b981;
+  color: #ffffff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.15s ease;
+}
+
+.start-section button:hover {
+  background: #059669;
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   About Section
+   =========================== */
+.about {
+  margin: 4rem 0;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.about h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #111827;
+}
+
+.about ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.about li {
+  margin-bottom: 0.4rem;
+}
+
+/* ===========================
+   Reviews Section
+   =========================== */
+.reviews {
+  margin: 4rem 0;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.reviews h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #111827;
+}
+
+/* Review Form */
+.review-form {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.review-form input,
+.review-form textarea {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+}
+
+.review-form input {
+  flex: 1;
+  min-width: 150px;
+}
+
+.review-form textarea {
+  flex: 3;
+  resize: vertical;
+  min-height: 60px;
+}
+
+.review-form button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.review-form button:hover {
+  background: #1d4ed8;
+}
+
+/* Individual Review */
+.review {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.review strong {
+  color: #2563eb;
+}
+
+.review small {
+  color: #555;
+  margin-left: 6px;
+  font-size: 0.85rem;
+}
+
+.review p {
+  margin: 0.4rem 0 0;
+}
+
+/* ===========================
+   Footer
+   =========================== */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  margin-top: 3rem;
+}
+
+/* ===========================
+   Responsive tweaks
+   =========================== */
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .start-section button {
+    width: 100%;
+  }
+
+  .review-form {
+    flex-direction: column;
+  }
+
+  .review-form input,
+  .review-form textarea,
+  .review-form button {
+    width: 100%;
+  }
+}
