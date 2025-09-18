@@ -1,191 +1,129 @@
-/* LoginPage.module.css */
-
-/* Modal overlay */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Container */
+.container {
+  position: relative;
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.55);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  animation: fadeIn 0.25s ease;
-}
-
-/* Modal container */
-.modal {
-  background: #ffffff;
-  border-radius: 12px;
-  width: 400px;
-  max-width: 90%;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  max-width: 1300px;
+  min-height: 600px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   display: flex;
-  flex-direction: column;
-  animation: slideDown 0.3s ease;
 }
 
-/* Header */
-.modal-header {
-  padding: 1rem 1.5rem;
-  background: #2563eb;
-  color: white;
+/* Form Containers */
+.formContainer {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  padding: 2rem;
+  transition: all 0.6s ease-in-out;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-}
-
-.modal-header h3 {
-  margin: 0;
-  font-size: 1.25rem;
-}
-
-.icon-btn {
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: white;
-}
-
-/* Body/Form */
-.modal-body {
-  padding: 1.5rem;
-  display: flex;
+  justify-content: center;
   flex-direction: column;
-  gap: 1rem;
 }
 
-.field span {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 0.25rem;
-  font-size: 0.9rem;
+.signInContainer { left: 0; z-index: 2; }
+.signUpContainer { left: 0; opacity: 0; z-index: 1; }
+
+.container.rightPanelActive .signInContainer {
+  transform: translateX(100%);
+  opacity: 0;
 }
 
-.field input {
+.container.rightPanelActive .signUpContainer {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+}
+
+/* Overlay */
+.overlayContainer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 100;
+  text-align: center;      /* centers text inside elements */
+  padding: 2rem;
+  border-radius: 2%;
+}
+
+.overlay {
+  background: linear-gradient(135deg, #2196f3, #21cbf3);
+  color: #fff;
+  position: relative;
+  
+  height: 100%;
   width: 100%;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.field input:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
-  outline: none;
-}
-
-/* Actions */
-.modal-actions {
   display: flex;
-  justify-content: flex-end;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
+  align-items: center;
+  justify-content: space-around;
+  transition: transform 0.6s ease-in-out;
+  text-align: right;      /* centers text inside elements */
+  padding: 2rem;
+  border-radius: 4%;
+}
+.overlayPanel {
+  width: 50%;
+  flex: 1;
+  display: flex;           /* enables flex layout */
+  flex-direction: column;  /* stack children vertically */
+  justify-content: center; /* vertical centering */
+  align-items: center;     /* horizontal centering */
+  text-align: center;      /* centers text inside elements */
+  padding: 2rem;
+  
 }
 
+.container.rightPanelActive .overlayContainer {
+  transform: translateX(-100%);
+}
+
+/* Typography & fields */
+.title { font-size: 1.6rem; margin-bottom: 1.5rem; color: #333; }
+.field { display: flex; flex-direction: column; margin-bottom: 1rem; width: 100%; }
+.field span { font-size: 0.9rem; margin-bottom: 0.3rem; color: #666; }
+.field input { padding: 0.7rem; border: 1px solid #ccc; border-radius: 8px; outline: none; }
+.field input:focus { border-color: #2196f3; }
+
+/* Buttons */
 .btn {
-  cursor: pointer;
-  font-weight: 500;
-  border-radius: 6px;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-/* Primary button */
-.btn.primary {
-  background: #2563eb;
-  color: #fff;
   border: none;
-  padding: 0.5rem 1rem;
-}
-
-.btn.primary:hover {
-  background: #1e40af;
-}
-
-/* Outline button */
-.btn.outline {
-  background: transparent;
-  color: #2563eb;
-  border: 2px solid #2563eb;
-  padding: 0.5rem 1rem;
-}
-
-.btn.outline:hover {
-  background: #2563eb;
-  color: #fff;
-}
-
-/* Link button (for create account) */
-.btn.link {
-  background: transparent;
-  border: none;
-  color: #2563eb;
-  text-decoration: underline;
-  padding: 0;
-  font-size: 0.95rem;
-}
-
-.btn.link:hover {
-  color: #1e40af;
-}
-
-/* Create account section */
-.create-account {
-  padding: 1rem 1.5rem;
-  text-align: center;
-  border-top: 1px solid #e2e8f0;
-  font-size: 0.95rem;
-}
-
-.create-account p {
-  margin-bottom: 0.5rem;
-}
-
-/* Toast */
-.toast {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  min-width: 250px;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  background: #2196f3;
   color: white;
-  font-weight: 500;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  z-index: 2000;
-  animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.5s forwards;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
 }
+.btn:hover { background: #1976d2; }
+.btn.outline { background: transparent; border: 2px solid #2196f3; color: #2196f3; }
+.btn.outline:hover { background: #2196f3; color: white; }
+.btn.primary { background: #21cbf3; color: #fff; }
 
-.toast.success {
-  background-color: #16a34a;
-}
+.actions { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
 
-.toast.error {
-  background-color: #dc2626;
-}
+/* Mobile */
+@media (max-width: 768px) {
+  .container { flex-direction: column; max-width: 400px; min-height: 1050px; }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+  .formContainer { width: 100%; height: 50%; transition: transform 0.6s ease-in-out; }
+  .signInContainer { top: 0; left: 0; }
+  .signUpContainer { top: 100%; left: 0; }
 
-@keyframes slideDown {
-  from { transform: translateY(-20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
+  .container.rightPanelActive .signInContainer { transform: translateY(-100%); opacity: 0; }
+  .container.rightPanelActive .signUpContainer { transform: translateY(-110%); opacity: 1; z-index: 5; }
 
-@keyframes slideIn {
-  from { transform: translateX(100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes fadeOut {
-  to { opacity: 0; }
+  .overlayContainer { top: 45%; left: 0; width: 100%; height: 40%; transition: transform 0.6s ease-in-out; }
+  .overlay { flex-direction: row; width: 100%; height: 100%; left: 0;
+  text-align:right ; }
+  .container.rightPanelActive .overlayContainer { transform: translateY(-100%); }
 }
