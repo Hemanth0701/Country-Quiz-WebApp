@@ -1,28 +1,37 @@
-import React from 'react'
-import styles from './Leaderboard.module.css'
+import React from "react"
+import styles from "./Leaderboard.module.css"
 
 export default function Leaderboard({ title, items, loading }) {
   return (
-    <article className={styles.board}>
+    <section className={styles.board}>
       <h3 className={styles.boardTitle}>{title}</h3>
+
       {loading ? (
         <div className={styles.loading}>Loading…</div>
       ) : (
-        <ol className={styles.boardList}>
-          {items.map((row, idx) => (
-            <li key={row.id} className={styles.row}>
-              <span className={styles.rank}>{idx + 1}</span>
-              <span className={styles.name} title={row.name}>
-                {row.name}
-              </span>
-              <span className={styles.score}>{row.score}</span>
-            </li>
-          ))}
-          {items.length === 0 && (
-            <li className={styles.empty}>No scores yet.</li>
+        <div className={styles.boardContainer}>
+          {items.length > 0 ? (
+            items.map((row, idx) => (
+              <article key={row.id} className={styles.row}>
+                {/* Left side (rank + name) */}
+                <div className={styles.left}>
+                  <span className={styles.rank}>{idx + 1}</span>
+                  <span className={styles.name} title={row.name}>
+                    {row.name}
+                  </span>
+                </div>
+
+                {/* Right side (score) */}
+                <div className={styles.right}>
+                  <span className={styles.score}>{row.score}</span>
+                </div>
+              </article>
+            ))
+          ) : (
+            <div className={styles.empty}>No scores yet.</div>
           )}
-        </ol>
+        </div>
       )}
-    </article>
+    </section>
   )
 }

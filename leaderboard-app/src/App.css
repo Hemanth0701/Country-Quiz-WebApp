@@ -19,6 +19,7 @@ body {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
+  color: #000;
 }
 
 .sr-only {
@@ -68,7 +69,7 @@ body {
 }
 
 .leaderboard {
-  background: #ffffff;
+  background: #1e23ac;
   border-radius: 0.75rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   overflow: hidden;
